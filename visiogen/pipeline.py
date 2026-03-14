@@ -21,8 +21,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Add parent to path so imports work from repo root
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+# Add repo root to path so imports work on all platforms
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
 
 from genetics.prs_pipeline import PRSModel, EnvironmentalProfile
 from progression.bayesian_markov import BayesianMarkovModel

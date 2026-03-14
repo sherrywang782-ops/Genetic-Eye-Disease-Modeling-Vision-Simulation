@@ -119,7 +119,7 @@ class Trajectory:
     Output of a simulated disease trajectory.
 
     Attributes:
-        ages           : array of ages simulated (e.g. 40..80)
+        ages           : array of ages simulated (e.g. 30..80)
         stage_probs    : (n_ages, n_stages) array — probability of being in each stage at each age
         stage_probs_ci : dict with 'lower' and 'upper' (n_ages, n_stages) confidence interval arrays
         risk_score     : genetic risk score used
@@ -234,7 +234,7 @@ class BayesianMarkovModel:
     def simulate_trajectory(
         self,
         risk_score: float,
-        age_start: int = 40,
+        age_start: int = 30,
         age_end: int = 80,
         n_simulations: int = 5000,
         ci: float = 0.95,
