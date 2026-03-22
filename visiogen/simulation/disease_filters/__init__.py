@@ -118,7 +118,7 @@ def _apply_glaucoma(image: np.ndarray, severity: float) -> np.ndarray:
     if severity > 0.3:
         edge_blur = cv2.GaussianBlur(out, (0, 0), sigmaX=severity * 8)
         edge_mask = np.clip((dist - field_radius * 0.7) / (field_radius * 0.4), 0, 1)
-        edge_mask = np.clip(edge_mask * mask[:, :, 0][:, :, np.newaxis], 0, 1)
+        edge_mask = np.clip(edge_mask[:, :, np.newaxis] * mask, 0, 1)
         out = out * (1 - edge_mask * 0.6) + edge_blur * edge_mask * 0.6
 
     return np.clip(out, 0, 255).astype(np.uint8)
